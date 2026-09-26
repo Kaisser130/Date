@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank youu Babylynn💕</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <div class="photobooth-frame">
+      <img src="./f51bc48e-b8fe-42ae-adc9-ae2491e17cfe.jpg" alt="Us Together" class="photo" />
+      <div id="photo-caption" class="polaroid-caption">Us Together 💕</div>
+    </div>
+
+    <h2 id="celeb-title" class="success-title">YAY! 🎉🥰</h2>
+    <p id="celeb-subtitle" class="subtitle">Pick a Time and Date ✨</p>
+
+    <button class="btn btn-yes mt-20" onclick="window.location.href='pagethree.html'">Pick a Time and Date! 🗓️</button>
+  </div>
+<img src="./6799670.png" alt="F1 Background" class="background-image">
+  <script src="config.js"></script>
+  <script>
+    if (typeof CONFIG !== 'undefined') {
+      document.getElementById('celeb-title').innerText = CONFIG.celebrationTitle;
+      document.getElementById('celeb-subtitle').innerText = CONFIG.celebrationSubtitle;
+      document.getElementById('photo-img').src = CONFIG.photoUrl;
+      document.getElementById('photo-caption').innerText = CONFIG.photoCaption;
+    }
+  </script>
+</body>
+</html>

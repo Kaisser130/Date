@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Question For You 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="hearts-container" id="hearts-container"></div>
+
+  <div class="card">
+    <div class="gif-container">
+      <img src="./cute-cat-love.gif" alt="Cute heart cat">
+    </div>
+
+    <h1 class="title" id="question-text">Would you like to go to Sky Ranch with me after midterms? 💖</h1>
+
+    <div class="btn-group">
+      <button id="yes-btn" class="btn btn-yes" onclick="window.location.href='pagetwo.html'">Yes! 💕</button>
+      <button id="no-btn" class="btn btn-no">No 😢</button>
+    </div>
+  </div>
+
+  <img src="./6799670.png" alt="F1 Background" class="background-image">
+
+  <script src="config.js"></script>
+  <script>
+    if (typeof CONFIG !== 'undefined' && CONFIG.proposalQuestion) {
+      document.getElementById('question-text').innerText = CONFIG.proposalQuestion;
+    }
+
+    const noBtn = document.getElementById('no-btn');
+
+    function moveNoButton() {
+      const padding = 30;
+      const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+      const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+      const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+      const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+
+      noBtn.style.position = 'fixed';
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+    }
+
+    noBtn.addEventListener('mouseover', moveNoButton);
+    noBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      moveNoButton();
+    });
+
+    const heartsContainer = document.getElementById('hearts-container');
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart');
+      heart.innerText = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }, 400);
+    
+
+
+  </script>
+</body>
+</html>

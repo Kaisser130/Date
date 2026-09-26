@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Our Date</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2 id="date-title" class="title-sm">Let's Plan Our Date! ☕🍿</h2>
+    
+    <form id="date-form" onsubmit="event.preventDefault(); submitPlan();">
+      <div class="form-group">
+        <label for="date-select">Select Day 📅</label>
+        <input type="date" id="date-select" required />
+      </div>
+
+      <div class="form-group">
+        <label for="time-select">Select Time ⏰</label>
+        <input type="time" id="time-select" required />
+      </div>
+
+      <button type="submit" class="btn btn-yes w-full mt-20">Lock It In! 🔒❤️</button>
+    </form>
+  </div>
+<img src="./6799670.png" alt="F1 Background" class="background-image">
+  <script src="config.js"></script>
+  <script>
+    // Load custom title from config.js if available
+    if (typeof CONFIG !== 'undefined' && CONFIG.dateTitle) {
+      document.getElementById('date-title').innerText = CONFIG.dateTitle;
+    }
+
+    function submitPlan() {
+      const dateVal = document.getElementById('date-select').value;
+      const timeVal = document.getElementById('time-select').value;
+
+      // Save date and time to localStorage so page4.html can display them
+      localStorage.setItem('datePlan', JSON.stringify({
+        date: dateVal,
+        time: timeVal
+      }));
+
+      // Redirect straight to Page 4 (Receipt)
+      window.location.href = 'pagefour.html';
+    }
+  </script>
+</body>
+</html>

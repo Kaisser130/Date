@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Receipt 🧾💖</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Paper Receipt Box Design */
+    .receipt-card {
+      background: #ffffff;
+      border: 2px dashed #ff4d6d;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin: 1.2rem 0;
+      text-align: left;
+      box-shadow: 0 4px 15px rgba(255, 77, 109, 0.1);
+    }
+
+    .receipt-header {
+      text-align: center;
+      border-bottom: 2px dashed #ffe3e8;
+      padding-bottom: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    /* Highlighted Box for Screenshot Request */
+    .screenshot-note {
+      background: #fff0f3;
+      border-radius: 12px;
+      padding: 0.9rem;
+      margin-top: 1rem;
+      color: #ff4d6d;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    /* Personal Care Note Below */
+    .care-note {
+      color: #6c757d;
+      font-size: 0.95rem;
+      margin-top: 1.2rem;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating background hearts container -->
+  <div class="hearts-container" id="hearts-container"></div>
+
+  <div class="card">
+    <div class="gif-container">
+      <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Happy cat animation">
+    </div>
+
+    <h2 class="success-title">It's Official! 🎉</h2>
+
+    <div class="receipt-card">
+      <div class="receipt-header">
+        <h3 style="color: #ff4d6d; font-size: 1.2rem;">OFFICIAL DATE TICKET 🧾</h3>
+      </div>
+      <div class="receipt-row">
+        <span><strong>📅 Date:</strong></span>
+        <span id="receipt-date">-</span>
+      </div>
+      <div class="receipt-row">
+        <span><strong>⏰ Time:</strong></span>
+        <span id="receipt-time">-</span>
+      </div>
+    </div>
+
+    <div class="screenshot-note">
+      📸 Screenshot this please and send it to me
+    </div>
+
+    <p class="care-note">
+     Always take care of yourself and if you are stressed out, reach out to meee
+    </p>
+    <p class="care-note">
+         -Kai ❤️
+    </p>
+  </div>
+<img src="./6799670.png" alt="F1 Background" class="background-image">
+  <script>
+ 
+    const savedPlan = JSON.parse(localStorage.getItem('datePlan'));
+
+    if (savedPlan) {
+      document.getElementById('receipt-date').innerText = savedPlan.date || 'TBD';
+      document.getElementById('receipt-time').innerText = savedPlan.time || 'TBD';
+    }
+
+    const heartsContainer = document.getElementById('hearts-container');
+    if (heartsContainer) {
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.classList.add('floating-heart');
+        heart.innerText = '💖';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+        heartsContainer.appendChild(heart);
+        setTimeout(() => heart.remove(), 7000);
+      }, 400);
+    }
+  </script>
+</body>
+</html>
